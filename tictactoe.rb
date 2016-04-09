@@ -16,3 +16,5 @@ def valid_space?(board, position, marker)
 	end
 	
 end
+
+def win()

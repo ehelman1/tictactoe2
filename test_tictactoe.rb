@@ -18,7 +18,10 @@ class TestTictactoe <Minitest::Test
 		assert_equal(false, valid_space?([1, 2, "O", 4, 5, 6, 7, 8, 9], 2, "O"))
 		assert_equal(false, valid_space?([1, 2, 3, 4, 5, 6, 7, "O", 9], 7, "O"))
 	end
-
+	
+	def test_that_you_win
+		assert_equal(true, win([1, 2, "X", 4, 5, "X", 7, 8, "X"])
+	end
 
 
 
