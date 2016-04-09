@@ -17,4 +17,8 @@ def valid_space?(board, position, marker)
 	
 end
 
-def win()
+def win?(board, position, marker)
+	if board[2] && board[5] && board[8] == "X"
+		true
+	end
+end
