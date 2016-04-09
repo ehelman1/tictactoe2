@@ -7,3 +7,12 @@ def update_board(board, position, marker)
 	board[position] = marker
 	board	
 end
+
+def valid_space?(board, position, marker)
+	if board[position] == position + 1
+		true
+	else
+		false
+	end
+	
+end
