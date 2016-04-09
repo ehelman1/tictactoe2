@@ -21,6 +21,7 @@ class TestTictactoe <Minitest::Test
 	
 	def test_that_you_win
 		assert_equal(true, win?([1, 2, "X", 4, 5, "X", 7, 8, "X"], [2, 5, 8], "X"))
+		assert_equal(true, win?([1, "X", 3, 4, "X", 6, 7, "X", 9], [1, 4, 7], "X"))
 	end
 
 
