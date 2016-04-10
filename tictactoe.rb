@@ -17,7 +17,7 @@ def valid_space?(board, position, marker)
 	
 end
 
-def win?(board, position, marker)
+def win?(board, marker)
 	if board[2] == marker && board[5] == marker && board[8] == marker ||
 	   board[7] == marker && board[4] == marker && board[1] == marker ||
 	   board[6] == marker && board[3] == marker && board[0] == marker ||
@@ -27,5 +27,27 @@ def win?(board, position, marker)
 	   board[0] == marker && board[4] == marker && board[8] == marker ||
 	   board[2] == marker && board[4] == marker && board[6] == marker
 		true
+	else
+		false
 	end
 end
+
+def tie_game?(game_board)
+	game_board.all? do |value|
+		value.class == String
+	end
+end
+
+def game_over?(game_board, marker)
+	win?(game_board, marker) ||
+	tie_game?(game_board)
+end
+
+
+
+
+
+
+
+
+

@@ -20,12 +20,24 @@ class TestTictactoe <Minitest::Test
 	end
 	
 	def test_that_you_win
-		assert_equal(true, win?([1, 2, "X", 4, 5, "X", 7, 8, "X"], [2, 5, 8], "X"))
-		assert_equal(true, win?([1, "X", 3, 4, "X", 6, 7, "X", 9], [1, 4, 7], "X"))
+		assert_equal(true, win?([1, 2, "X", 4, 5, "X", 7, 8, "X"], "X"))
+		assert_equal(true, win?([1, "X", 3, 4, "X", 6, 7, "X", 9], "X"))
+		assert_equal(true, win?(["O", 2, 3, "O", 5, 6, "O", 8, 9],  "O"))
+		assert_equal(false, win?([1, "O", 3, "O", 5, 6, "O", 8, 9], "O"))
 	end
+	
+	def test_that_the_game_is_a_tie
+		assert_equal(true, tie_game?(["O", "X", "X", "O", "O", "X", "X", "O", "X"]))
+		assert_equal(false, tie_game?([1, 2, "X", 4, 5, "X", 7, 8, "X"]))
+	end
+	
+	def	test_game_is_over
+		assert_equal(true, game_over?([1, 2, "X", 4, 5, "X", 7, 8, "X"], "X"))
+		assert_equal(true, game_over?(["O", "X", "X", "O", "O", "X", "X", "O", "X"], "X"))
+		assert_equal(false, game_over?([1, 2, 3, 4, 5, "X", 7, 8, "X"], "O"))
 
 
 
-
+	end
 
 end
