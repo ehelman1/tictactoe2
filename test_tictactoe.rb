@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative "tictactoe.rb"
+require_relative "tictactoe_logic.rb"
 
 class TestTictactoe <Minitest::Test 
 
@@ -35,9 +35,12 @@ class TestTictactoe <Minitest::Test
 		assert_equal(true, game_over?([1, 2, "X", 4, 5, "X", 7, 8, "X"], "X"))
 		assert_equal(true, game_over?(["O", "X", "X", "O", "O", "X", "X", "O", "X"], "X"))
 		assert_equal(false, game_over?([1, 2, 3, 4, 5, "X", 7, 8, "X"], "O"))
-
-
-
+	end
+	
+	def test_available_spaces
+		assert_equal([1, 2, 3, 4, 5], get_available_spaces([1, 2, 3, 4, 5, "X", "O", "O", "X"]))
+		assert_equal([1, 2, 5, 8, 9], get_available_spaces([1, 2, "X", "O", 5, "O", "X", 8, 9]))
+		assert_equal([1, 2, 3, 4, 5, 6, 7, 8, 9], get_available_spaces([1, 2, 3, 4, 5, 6, 7, 8, 9]))
 	end
 
 end
