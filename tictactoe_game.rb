@@ -1,20 +1,18 @@
 require_relative "pick_ai.rb"
 require_relative "easy_ai.rb"
 
-def play_game
-	board = create_new_board
-	simple_player = "X"
-	sequential_player = "O"
-	until game_over?(board, simple_player) == true || game_over?(board, sequential_player) == true do
-		move1 = get_move(board)
-		board = update_board(board, move1 - 1, simple_player)
-		break if game_over?(board, simple_player) == true || game_over?(board, sequential_player) == true
-		move2 = get_move_sequential(board)
-		board = update_board(board, move2 - 1, sequential_player)
+def play_game(player_1, player_2, board)
+	
+	until game_over?(board, "X") == true || game_over?(board, "O") == true do
+		move1 = player_1[:player_mode].get_move(board)
+		board = update_board(board, move1 - 1, "X")
+		break if game_over?(board, "X") == true || game_over?(board, "O") == true
+		move2 = player_2[:player_mode].get_move(board)
+		board = update_board(board, move2 - 1, "O")
 	end
-	puts board
-	game_over?(board, simple_player) == true || game_over?(board, sequential_player) == true
+	board
+	
 end
 
-play_game
+
 
