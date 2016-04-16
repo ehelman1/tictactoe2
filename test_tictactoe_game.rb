@@ -12,8 +12,8 @@ class TicTacToeGame < Minitest::Test
 	end
 	
 	def test_the_number_of_strings
-		player_1 = {:player_mode => Sequential.new}
-		player_2 = {:player_mode => Random.new}
+		player_1 = {:player_mode => Sequential.new, :marker => "X"}
+		player_2 = {:player_mode => Random.new, :marker => "O"}
 		board = create_new_board
 		final_board = play_game(player_1, player_2, board)
 		remaining_board = get_available_spaces(final_board)
